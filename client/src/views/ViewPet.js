@@ -17,7 +17,7 @@ const ViewPet = props => {
     useEffect( () => {
         axios.get(`http://localhost:8000/api/pet/${id}`)
         .then(response => {
-            if(response.data.message == "error" || response.data.data == null){
+            if(response.data.message === "error" || response.data.data == null){
                 navigate("/allpets");
             } else {
                 setPet(response.data.data);

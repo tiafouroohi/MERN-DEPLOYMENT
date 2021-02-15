@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import From from '../components/Form';
 import axios from 'axios';
 import {navigate} from '@reach/router';
 import Form from '../components/Form';
@@ -37,7 +36,7 @@ const EditPet = props => {
         axios.patch(`http://localhost:8000/api/pet/edit/${id}`, pet)
         .then(response => {
             const res = response.data;
-            if(res.message == "error"){
+            if(res.message === "error"){
                 setErrors(res.data.errors);
             } else {
                 navigate(`/pet/${id}`);
@@ -49,7 +48,7 @@ const EditPet = props => {
     useEffect( () => {
         axios.get(`http://localhost:8000/api/pet/${id}`)
         .then(response => {
-            if(response.data.message == "error" || response.data.data == null) {
+            if(response.data.message === "error" || response.data.data == null) {
                 navigate("/");
             } else {
                 setPet(response.data.data);

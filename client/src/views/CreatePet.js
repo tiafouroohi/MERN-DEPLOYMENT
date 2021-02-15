@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
-import From from '../components/Form';
 import Form from '../components/Form';
 
 const CreatePet = () => {
@@ -36,7 +35,6 @@ const CreatePet = () => {
             .then(response => {
                 const res = response.data;
                 if(res.message === "success"){
-                    
                     navigate("/allpets");
                 } else {
                     setErrors(res.data.errors);

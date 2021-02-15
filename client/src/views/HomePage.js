@@ -14,7 +14,7 @@ const HomePage = () => {
     const deleteHandler = i => {
         axios.delete(`http://localhost:8000/api/pet/${pet[i]._id}`)
         .then(response => {
-            setPet(pet.filter((item, index) => index != i));
+            setPet(pet.filter((item, index) => index !== i));
         })
         .catch(err => console.log(err));
     }
